@@ -155,7 +155,7 @@ img {
 
 
 .theme-default-heading{
-  background: linear-gradient(90deg, rgba(255, 0, 191, 0.25) 0%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(90deg, rgba(111,185,143, 0.25) 0%, rgba(255,255,255,0) 100%);
   }
 
 .theme-default:before {
@@ -167,8 +167,8 @@ img {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: rgb(0,191,255);
-  background: linear-gradient(0deg, rgba(0,191,255,0.2) 0%, rgba(255,255,255,1) 100%);
+  background: rgb(44,120,115);
+  background: linear-gradient(0deg, rgba(44,120,115,0.2) 0%, rgba(255,255,255,1) 100%);
   background-image: url(/images/light_noise_diagonal_@2X.png) green;
   opacity: 0.4;
 }
@@ -183,8 +183,8 @@ img {
   width: 100%;
   height: 100%;
   filter: grayscale(10%) invert(10%);
-  background: rgb(0,191,255);
-  background: linear-gradient(0deg, rgba(0,191,255,0.2) 0%, rgba(255,255,255,1) 100%);
+  background: rgb(44,120,115);
+  background: linear-gradient(0deg, rgba(45,66,98,0.2) 0%, rgba(255,255,255,1) 100%);
 }
 
 .theme-autumn-heading{
@@ -200,8 +200,8 @@ img {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: rgb(160,41,17);
-  background: linear-gradient(0deg, rgba(160,41,17,1) 0%, rgba(255,255,255,1) 100%);
+  background: rgb(208,150,131);
+  background: linear-gradient(0deg, rgba(208,150,131,.2) 0%, rgba(255,255,255,1) 100%);
   opacity: 0.4;
 }
 
@@ -215,8 +215,8 @@ img {
   width: 100%;
   height: 100%;
   filter: grayscale(10%) invert(10%);
-  background: rgb(160,41,17);
-  background: linear-gradient(0deg, rgba(160,41,17,0.2) 0%, rgba(255,255,255,1) 100%);
+  background: rgb(208,150,131);
+  background: linear-gradient(0deg, rgba(208,150,131,0.2) 0%, rgba(255,255,255,1) 100%);
 }
 
 .theme-ice-heading{
@@ -253,7 +253,7 @@ img {
 
 
 .theme-berries-heading{
-  background: linear-gradient(90deg, rgba(93, 85, 94, 1) 0%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(90deg, rgba(250,103,117, 1) 0%, rgba(255,255,255,0) 100%);
   }
 
 .theme-berries:before {
@@ -265,8 +265,8 @@ img {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  background: rgb(223,225,102);
-  background: linear-gradient(0deg, rgba(223,225,102,1) 0%, rgba(255,255,255,1) 100%);
+  background: rgb(255,235,148);
+  background: linear-gradient(0deg, rgba(255,235,148,.2) 0%, rgba(255,255,255,1) 100%);
   opacity: 1;
 }
 
@@ -280,6 +280,6 @@ img {
   width: 100%;
   height: 100%;
   filter: grayscale(10%) invert(10%);
-  background: rgb(223,225,102);
-  background: linear-gradient(0deg, rgba(223,225,102,1) 0%, rgba(255,255,255,1) 100%);
+  background: rgb(255,235,148);
+  background: linear-gradient(0deg, rgba(255,235,148,.2) 0%, rgba(255,255,255,1) 100%);
 }

@@ -3,6 +3,7 @@ import SectionHeading from './SectionHeading'
 import { Grid } from 'semantic-ui-react'
 
 const AboutMe = (props) => {
+  let words = props.user.bio.split(" ")
 
   return (
     <Grid columns='equal'>
@@ -17,7 +18,11 @@ const AboutMe = (props) => {
       <Grid.Row columns={16}>
         <Grid.Column width={2}></Grid.Column>
         <Grid.Column width={12}>
-          {props.user.bio}
+          {words.forEach( word => {
+            word.include('http://')
+              ? <a href={word}>{word.slice(7,-1)}</a>
+              : word + " "
+          })}
         </Grid.Column>
         <Grid.Column width={2}></Grid.Column>
       </Grid.Row>
