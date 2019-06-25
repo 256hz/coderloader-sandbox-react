@@ -5,7 +5,7 @@ import { Grid } from 'semantic-ui-react'
 const NamePicIntro = (props) => {
    if (!props.user.intro){
       return(
-         <Text className="heading-font font-size-huge">Loading...</Text>
+         <span className="heading-font font-size-huge">Loading...</span>
       )
    } else {
       let words = props.user.intro.split(" ")
