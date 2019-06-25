@@ -18,9 +18,9 @@ const AboutMe = (props) => {
       <Grid.Row columns={16}>
         <Grid.Column width={2}></Grid.Column>
         <Grid.Column width={12}>
-          {words.forEach( word => {
+          {words.map( word => {
             word.include('http://')
-              ? <a href={word}>{word.slice(7,-1)}</a>
+              ? <a href={word} target="_blank">{word.slice(7,-1)}</a>
               : word + " "
           })}
         </Grid.Column>
