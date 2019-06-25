@@ -19,7 +19,7 @@ const AboutMe = (props) => {
         <Grid.Column width={2}></Grid.Column>
         <Grid.Column width={12}>
           {words.map( word => {
-            word.include('http://')
+            word.includes('http://')
               ? <a href={word} target="_blank">{word.slice(7,-1)}</a>
               : word + " "
           })}
