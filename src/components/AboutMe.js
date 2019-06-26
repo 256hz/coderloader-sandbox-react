@@ -33,7 +33,7 @@ const AboutMe = (props) => {
           <Grid.Column width={12}>
             {words.map( word => {
               return word.includes('http://')
-                ? <a href={word} target="_blank" rel="noopener noreferrer">{word.slice(7,-1) + " "}</a>
+                ? <a href={word} target="_blank" rel="noopener noreferrer">{word.slice(7) + " "}</a>
                 : word + " "
             })}
           </Grid.Column>
