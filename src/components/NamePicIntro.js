@@ -28,7 +28,7 @@ const NamePicIntro = (props) => {
                <span>
                   {words.map( word => {
                       return word.includes('http://')
-                        ? <a href={word} target="_blank" rel="noopener noreferrer">{word.slice(7,-1) + " "}</a>
+                        ? <a href={word} target="_blank" rel="noopener noreferrer">{word.slice(7) + " "}</a>
                         : word + " "
                   })}
                </span>
