@@ -5,7 +5,7 @@ const Login = (props) => {
 
     return (
     <Grid columns="equal" textAlign="center">
-        Welcome, {props.username}
+        Welcome, {props.currentUser.firstName}
         <p> </p>
         <Button size="tiny"
             onClick={props.logOut}

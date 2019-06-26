@@ -262,7 +262,7 @@ class App extends React.Component {
 
                  <Menu.Item as='a'>
                     {(this.state.loggedIn && localStorage.getItem('jwt'))
-                      ? <LoggedIn username={this.state.username} logOut={this.logOut}/>
+                      ? <LoggedIn user={this.state.currentUser} logOut={this.logOut}/>
                       : <Login login={this.login} message={this.state.message}/>
                     }
                  </Menu.Item>
