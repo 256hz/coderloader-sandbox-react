@@ -1,16 +1,22 @@
 import React from 'react'
-import { Grid, Button } from 'semantic-ui-react'
+import { Form, Button } from 'semantic-ui-react'
 
 const Login = (props) => {
 
     return (
-    <Grid columns="equal" textAlign="center">
-        Welcome, {props.currentUser.firstName}
-        <p> </p>
-        <Button size="tiny"
-            onClick={props.logOut}
-        >Logout</Button>
-    </Grid>
+    <Form.Group>
+        <Form.Field>
+            Welcome, {props.username} 
+        </Form.Field>
+        <Form.Field>
+            {' '}<br />
+        </Form.Field>
+        <Form.Field>
+            <Button size='tiny' onClick={props.logOut} inverted>
+                Logout
+            </Button>
+        </Form.Field>
+    </Form.Group>
         )
 }
 
