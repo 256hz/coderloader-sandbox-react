@@ -1,42 +1,42 @@
 import React from 'react'
-import {Form, Grid} from 'semantic-ui-react'
+import {Form, Header} from 'semantic-ui-react'
 
 class Login extends React.Component {
     state={
-        user: "",
-        pass: ""
+        user: '',
+        pass: ''
     }
     handleUserChange = (e, {value}) => this.setState({user: value})
     handlePassChange = (e, {value}) => this.setState({pass: value})
     
     render() { 
         return(
-        <Grid textAlign="center">
-            {this.props.message}
             <Form>
-                <Form.Group widths={1}>
+                <Header as='h4' color='orange'>
+                    {this.props.message}
+                </Header>
+                <Form.Field>
                     <Form.Input inverted
-                        label={{ icon:"user circle outline inverted" }}
+                        icon='user circle outline'
                         onChange={this.handleUserChange}
-                        iconPosition="left" placeholder="username"
+                        placeholder='username'
                         value={this.state.user}
                     />
-                </Form.Group>
+                </Form.Field>
 
-                <Form.Group widths={1}>
+                <Form.Field>
                     <Form.Input inverted
-                        type="password"
-                        label={{ icon:"key" }} 
+                        type='password'
+                        icon='key'
                         onChange={this.handlePassChange}
-                        iconPosition="left" placeholder="password" 
+                        placeholder='password' 
                         value={this.state.pass}
                     />
-                </Form.Group>
+                </Form.Field>
                 <Form.Button inverted
                     onClick={ev => this.props.login(ev, this.state.user, this.state.pass)}
                 >Login</Form.Button>
             </Form>
-        </Grid>
         )
     }
 }
@@ -45,16 +45,16 @@ class Login extends React.Component {
 export default Login
 
 // <Grid.Row columns={1} >
-//                     <Input size= "mini"
+//                     <Input size= 'mini'
 //                     ref={input => inputtext = input}
-//                     label={{ icon:"user circle outline" }} 
-//                     iconPosition="left" placeholder="username" 
+//                     label={{ icon:'user circle outline' }} 
+//                     iconPosition='left' placeholder='username' 
 //                     />
 //                 </Grid.Row>
 //                 <Grid.Row columns={1}>
-//                     <Input size= "mini"
-//                     label={{ icon:"key" }} 
-//                     iconPosition="left" placeholder="password" 
+//                     <Input size= 'mini'
+//                     label={{ icon:'key' }} 
+//                     iconPosition='left' placeholder='password' 
 //                     />
 //                 </Grid.Row>
 //                 <Grid.Row columns={1}>

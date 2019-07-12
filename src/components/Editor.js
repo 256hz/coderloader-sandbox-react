@@ -18,35 +18,53 @@ export default class Editor extends Component {
   chooseContent = () => {
     if (this.props.editingType) {
       switch (this.props.editingType) {
-        case "users":
-          return <AboutMeEdit content={this.props.editing} handleSubmit={this.props.handleSubmit} />
-          break
-        case "skills":
-          return <SkillsEdit content={this.props.editing} handleSubmit={this.props.handleSubmit}
-          startEdit={this.props.startEdit} handleDelete={this.props.handleDelete}/>
-          break
-        case "jobs":
-          return <JobEdit content={this.props.editing} handleSubmit={this.props.handleSubmit}
-          startEdit={this.props.startEdit} handleDelete={this.props.handleDelete}/>
-          break
-        case "githubs":
-          return <GithubEdit content={this.props.editing} handleSubmit={this.props.handleSubmit}
-          startEdit={this.props.startEdit} handleDelete={this.props.handleDelete}/>
-          break
+        case 'users':
+          return <AboutMeEdit 
+                    content={this.props.editing} 
+                    handleSubmit={this.props.handleSubmit} 
+                  />
+        case 'skills':
+          return <SkillsEdit 
+                    content={this.props.editing} 
+                    handleSubmit={this.props.handleSubmit}
+                    startEdit={this.props.startEdit} 
+                    handleDelete={this.props.handleDelete} 
+                    shiftOrder={this.props.shiftOrder}
+                  />
+        case 'jobs':
+          return <JobEdit 
+                    content={this.props.editing} 
+                    handleSubmit={this.props.handleSubmit}
+                    startEdit={this.props.startEdit} 
+                    handleDelete={this.props.handleDelete}
+                  />
+        case 'githubs':
+          return <GithubEdit 
+                    content={this.props.editing} 
+                    handleSubmit={this.props.handleSubmit}
+                    startEdit={this.props.startEdit} 
+                    handleDelete={this.props.handleDelete}
+                  />
         default:
           return null
       }
     } else if (this.props.creatingType) {
       switch (this.props.creatingType) {
-        case "skills":
-          return <SkillsCreate content={this.props.creating} handleCreate={this.props.handleCreate}/>
-          break
-        case "jobs":
-          return <JobsCreate content={this.props.creating} handleCreate={this.props.handleCreate}/>
-          break
-        case "githubs":
-          return <GithubsCreate content={this.props.creating} handleCreate={this.props.handleCreate}/>
-          break
+        case 'skills':
+          return <SkillsCreate 
+                  content={this.props.creating} 
+                  handleCreate={this.props.handleCreate}
+                />
+        case 'jobs':
+          return <JobsCreate 
+                  content={this.props.creating} 
+                  handleCreate={this.props.handleCreate}
+                />
+        case 'githubs':
+          return <GithubsCreate 
+                  content={this.props.creating} 
+                  handleCreate={this.props.handleCreate}
+                />
         default:
           return null
         }

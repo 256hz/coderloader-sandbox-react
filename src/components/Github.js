@@ -1,34 +1,112 @@
 import React from 'react'
-import {Card, Image, Button} from 'semantic-ui-react'
+import {Card, Image, Button, Divider, List, } from 'semantic-ui-react'
 
-
-const fancyName = (name) => {
-  return name.split('-').map( word => word[0].toUpperCase() + word.slice(1)).join(" ")
+const displayLinks = (github) => {
+  if (github.repo_url_back || github.demo_url) {
+    return(
+      <div className='centered font-size-small'>
+        <p>
+        {github.repo_url_front && 
+          <span>
+            <a href={github.repo_url_front} target='_blank' rel='noopener noreferrer'>
+              Front End Repo
+            </a>
+          </span>
+        } 
+        {github.repo_url_back && 
+          <span>|{' '}
+            <a href={github.repo_url_back} target='_blank' rel='noopener noreferrer'>
+              Back End Repo
+            </a>
+          </span>
+        }
+        {github.demo_url && 
+          <span>|{' '}
+            <a href={github.demo_url} target='_blank' rel='noopener noreferrer'>
+              Demo
+            </a>
+          </span>
+        }
+        </p>
+      </div>
+    )
+  } else {
+    return( 
+      <div style={{textAlign: 'center'}}>
+        <a href={github.repo_url_front} target='_blank' rel='noopener noreferrer'>
+          Github
+        </a>
+      </div>
+    )
   }
+}
 
 const Github = (props) => {
   let github = props.github
-  let _name = fancyName(github.repo_name)
   return (
-  <Card raised className="corner-sharp">
-    <Card.Content href={`https://github.com/${github.repo_owner}/${github.repo_name}`}
-        target="_blank" className="card-height">
+    <Card raised className='corner-sharp'>
 
-        <Image floated='right' size='mini' src={github.img_url} />
-        <Card.Header>       {_name}             </Card.Header>
-        <Card.Meta>         {github.summary}        </Card.Meta>
-        <Card.Description>  {github.contribution}   </Card.Description>
-
-    </Card.Content>
       {props.loggedIn
         ? <Card.Content>
-          <Button type="button" onClick={_ => props.shiftOrder('githubs', github, false)} icon="left arrow"/>
-          <Button type="button" onClick={_ => props.shiftOrder('githubs', github, true)} icon="right arrow"/>
-          <Button floated='right' size="small" onClick={_ => props.startEdit(github, 'githubs')} icon="edit"/>
-        </Card.Content>
+            <Button 
+              onClick={_ => props.shiftOrder('githubs', github, false)} 
+              floated='left'
+              size='large'
+              icon='left arrow'
+              />
+            <Button 
+              onClick={_ => props.shiftOrder('githubs', github, true)} 
+              floated='left'
+              size='large'
+              icon='right arrow'
+              />
+            <Button 
+              onClick={_ => props.startEdit(github, 'githubs')} 
+              floated='right'
+              size='large' 
+              icon='edit'
+              color='linkedin'
+              />
+          </Card.Content>
         : null
       }
-  </Card>
+
+      <Card.Content target='_blank' className='card-height'>        
+        <Image 
+          src={github.img_url}
+          style={{display: 'block', margin: 'auto', marginBottom: '10px'}} 
+        />
+        
+        <Card.Header style={{marginBottom: '10px'}} textAlign='center'>
+          {github.name}
+        </Card.Header>
+        
+        <Card.Meta>
+          <div>{displayLinks(github)}</div>
+        </Card.Meta>
+        <Divider />
+
+        <Card.Description>
+          {github.summary}
+        </Card.Description>
+        <Divider />
+
+        <Card.Description>
+          <Card.Meta>
+            CONTRIBUTIONS
+          </Card.Meta> 
+          <List relaxed bulleted className='left text'>
+            {github.contribution.map(con => {
+              return <List.Item key={con}>
+                {con}
+              </List.Item>
+            })}
+          </List>
+        </Card.Description>
+      
+      </Card.Content>
+
+    </Card>
   )
 }
 

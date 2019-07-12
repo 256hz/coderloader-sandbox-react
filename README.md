@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# CODERLOADER
 
-## Available Scripts
+<image src="/public/images/demo.png" />
 
-In the project directory, you can run:
+Hello & welcome to CoderLoader's React.js frontend. This contains the web-facing components for to [this](https://github.com/256hz/coderloader-rails/) repo, the Ruby on Rails backend of this project.
 
-### `npm start`
+### Overview
+[CoderLoader](http://sandboxportfolio.256hz.com) is an easily maintainable, pretty, single-page portfolio/resume site for coders. It includes a place for icons of your primary skills, featured Githubs, job experience, intro, bio, and contact info. It supports easily switching the order of your skills/jobs/Githubs and color theming.  You can see and edit an example at [the sandbox site](http://sandboxportfolio.256hz.com).
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This was bootstrapped with `create-react-app`.  Authentication is done with JWT.  All create/update actions require the JWT token header to POST.  Navigation is done with React Router and anchor tags.  Many components were used from [semantic-ui-react](https://react.semantic-ui.com).
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Installation (OSX/Linux)
+- First, follow the Readme in the [Rails repo](https://github.com/256hz/coderloader-rails/), install, and host.
+- Clone down this repo.
+- Run `yarn install` or `npm install` inside the project folder.
+- In App.js, change the `apiURL` constant to the base URL of your hosted backend.
+- Tinker to taste.
+- Host (for example, on [Heroku](http://www.heroku.com).  A good guide to deploying a Rails/React app on Heroku can be found [here](https://medium.com/coding-in-simple-english/deploying-rails-react-app-to-heroku-35e1829242ab)).
+- Log in from the hamburger menu on the top right and edit your portfolio!
 
-### `npm test`
+### Editing
+The Edit icon in the section headings will open up the sidebar form editor:
+<image src="/public/images/sidebar-skills.png">
+#### About Me: 
+  Change your name, intro, bio, image, contact info, and color theme.  Contact shows up at the bottom of the page.
+#### Skills: 
+  Add/remove/change skill icons.  Skill titles come up in a Semantic `<Popup>` when the cursor hovers over them.  When logged in, buttons appear between your skills that allow you to swap their positions.
+#### Jobs: 
+  Each job comes up in a card format.  When logged in, the card shows a footer that allows you to edit that job's company, title, image, dates, summary, responsibilities, and skills used.  The latter two can be added to or shrunk in number.  The logged-in footer also allows you to swap card positions.
+#### Repos: 
+  Same process as Jobs cards.
+#### Contact: 
+  Edited in the About Me section.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Adding/editing a color theme
+If you want to add more options, it's done manually in `/src/components/editForms/AboutMeEdit.js`.  Under the label `Color Theme` (line 71), add another `<option>` tag with a value that starts with `theme-`.  E.g.:
+`<option value="theme-sparkles">Sparkles</option>`
 
-### `npm run build`
+Theme colors are at the bottom of the app CSS file (`/src/App.css`).  To make a new one, duplicate the three elements that make up one of the other themes - e.g. `.theme-berries-heading`, `.theme-berries:before`, and `.theme-berries:after`.  Take care to match the names with the `value` of the option tag you made before (`.theme-sparkles-heading`, etc.).  To keep the same overall feel of the gradients, edit the following:
+- in `heading`, change the first color of the `linear-gradient`.
+- in `:before` and `:after`, change: 
+  - the value in the `background` element, and 
+  - the first 3 numbers in the `rgba` color value in the `background: linear-gradient` property.  Take care not to change the fourth number - this is the opacity value.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+All done!  Your new theme will show up in the About Me color theme dropdown. 
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### To do
+Currently restyling for mobile.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Thanks!
+Any changes you want to recommend, simply fork and make a PR, or find me on twitter (@256hertz).  Happy coding! --Abe
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+(c) 2019 Abe Dolinger & Doug Ward

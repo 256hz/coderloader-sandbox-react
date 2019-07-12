@@ -5,34 +5,41 @@ import {Link} from 'react-router-dom'
 const SectionHeading = (props) => {
 
   return (
-    <Grid columns={16}>
-      <Grid.Column width={16}>{' '}</Grid.Column>
-      <Grid.Column width={16} textAlign="center">
-          <Link to="/#nav"><Icon name="triangle up"/></Link>
-      </Grid.Column>
-
-      <Grid.Row className={`${props.user.color_theme}-heading`}>
-        <Grid.Column width={2} textAlign="center" verticalAlign="middle">
-          <Button.Group>
-            {(props.sectionEdit && props.loggedIn && localStorage.getItem('jwt') !== '')
-              ? <Button icon="edit" onClick={props.startEdit}/>
+    <Grid>
+      <Grid.Row />
+      <Grid.Row centered>
+        <Link to="/#nav"><Icon name="triangle up"/></Link>
+      </Grid.Row>
+      
+      <Grid.Row className={`${props.user.color_theme}-heading`} width={16}>
+        <Grid.Column width={12} verticalAlign="middle">
+          <span className="font-size-large font-heading">{props.text}</span>
+        </Grid.Column>
+      
+        <Grid.Column width={4} verticalAlign="middle">
+          <Button.Group floated="right">
+            {(props.sectionEdit && props.loggedIn)
+              ? <Button 
+                  onClick={props.startEdit} 
+                  color="linkedin"
+                  icon="edit"
+                  size="large"
+                />
               : null}
-            {(props.sectionNew && props.loggedIn && localStorage.getItem('jwt') !== '')
-              ? <Button icon="add circle" onClick={props.startNew}/>
+            {(props.sectionNew && props.loggedIn)
+              ? <Button 
+                  onClick={props.startNew} 
+                  color="green"
+                  icon="add circle"
+                  size="large"
+                  />
               : null}
           </Button.Group>
         </Grid.Column>
 
-        <Grid.Column width={14} verticalAlign="middle">
-          <div>
-            <span className="font-size-large heading-font">{props.text}</span>
-          </div>
-        </Grid.Column>
       </Grid.Row>
-
-      <Grid.Column width={16}>{' '}</Grid.Column>
-      <Grid.Column width={16}>{' '}</Grid.Column>
-
+      <Grid.Row />
+      <Grid.Row />
     </Grid>
   )
   }
