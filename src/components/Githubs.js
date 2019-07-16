@@ -27,7 +27,9 @@ const Githubs = (props) => {
             <Grid.Column width={12}>
               <Card.Group centered doubling itemsPerRow='2'>
                 <br />
-                {githubs.map( (github, index) => {
+                {githubs && 
+                
+                githubs.map( (github, index) => {
                   return <Github 
                             key =        {github.name + index}
                             github =     {github} 
