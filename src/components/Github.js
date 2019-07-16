@@ -43,71 +43,77 @@ const displayLinks = (github) => {
 
 const Github = (props) => {
   let github = props.github
-  return (
-    <Card raised className='corner-sharp'>
+  if (!github) {
+    return "Loading card"
+  } else {
+    return (
+      <Card raised className='corner-sharp'>
 
-      {props.loggedIn
-        ? <Card.Content>
-            <Button 
-              onClick={_ => props.shiftOrder('githubs', github, false)} 
-              floated='left'
-              size='large'
-              icon='left arrow'
-              />
-            <Button 
-              onClick={_ => props.shiftOrder('githubs', github, true)} 
-              floated='left'
-              size='large'
-              icon='right arrow'
-              />
-            <Button 
-              onClick={_ => props.startEdit(github, 'githubs')} 
-              floated='right'
-              size='large' 
-              icon='edit'
-              color='linkedin'
-              />
-          </Card.Content>
-        : null
-      }
+        {props.loggedIn
+          ? <Card.Content>
+              <Button 
+                onClick={_ => props.shiftOrder('githubs', github, false)} 
+                floated='left'
+                size='large'
+                icon='left arrow'
+                />
+              <Button 
+                onClick={_ => props.shiftOrder('githubs', github, true)} 
+                floated='left'
+                size='large'
+                icon='right arrow'
+                />
+              <Button 
+                onClick={_ => props.startEdit(github, 'githubs')} 
+                floated='right'
+                size='large' 
+                icon='edit'
+                color='linkedin'
+                />
+            </Card.Content>
+          : null
+        }
 
-      <Card.Content target='_blank' className='card-height'>        
-        <Image 
-          src={github.img_url}
-          style={{display: 'block', margin: 'auto', marginBottom: '10px'}} 
-        />
-        
-        <Card.Header style={{marginBottom: '10px'}} textAlign='center'>
-          {github.name}
-        </Card.Header>
-        
-        <Card.Meta>
-          <div>{displayLinks(github)}</div>
-        </Card.Meta>
-        <Divider />
-
-        <Card.Description className="text">
-          {github.summary}
-        </Card.Description>
-        <Divider />
-
-        <Card.Description>
+        <Card.Content target='_blank' className='card-height'>        
+          <Image 
+            src={github.img_url}
+            style={{display: 'block', margin: 'auto', marginBottom: '10px'}} 
+          />
+          
+          <Card.Header style={{marginBottom: '10px'}} textAlign='center'>
+            {github.name}
+          </Card.Header>
+          
           <Card.Meta>
-            CONTRIBUTIONS
-          </Card.Meta> 
-          <List relaxed bulleted className='left text'>
-            {github.contribution && github.contribution.map(con => {
-              return <List.Item key={con}>
-                {con}
-              </List.Item>
-            })}
-          </List>
-        </Card.Description>
-      
-      </Card.Content>
+            <div>{displayLinks(github)}</div>
+          </Card.Meta>
+          <Divider />
 
-    </Card>
-  )
+          <Card.Description className="text">
+            {github.summary}
+          </Card.Description>
+          <Divider />
+
+          {github.contribution &&
+            (<Card.Description>
+              <Card.Meta>
+                CONTRIBUTIONS
+              </Card.Meta> 
+              <List relaxed bulleted className='left text'>
+                {github.contribution.map(con => {
+                  return <List.Item key={con}>
+                    {con}
+                  </List.Item>
+                })}
+              </List>
+            </Card.Description>)
+          }
+        
+        </Card.Content>
+
+      </Card>
+    )
+  }
 }
 
 export default Github
