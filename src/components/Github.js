@@ -96,7 +96,7 @@ const Github = (props) => {
             CONTRIBUTIONS
           </Card.Meta> 
           <List relaxed bulleted className='left text'>
-            {github && github.contribution.map(con => {
+            {github.contribution && github.contribution.map(con => {
               return <List.Item key={con}>
                 {con}
               </List.Item>
