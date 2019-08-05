@@ -32,7 +32,7 @@ const DEFAULT_STATE = {
   links: [],
   users: [],
 
-  apiURL: 'http://portfoliodb.256hz.com/api/v1/',
+  apiURL: 'https://portfoliodb.256hz.com/api/v1/',
   confirmOpen: false,
   contentToDelete: {},
   creating: {},
